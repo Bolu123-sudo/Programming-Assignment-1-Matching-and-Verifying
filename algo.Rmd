@@ -1,0 +1,20 @@
+---
+title: "Algo"
+author: "Varun Yelchur"
+date: "2026-01-30"
+output: pdf_document
+---
+
+```{r}
+data <- read.csv("matcher_times.csv")
+
+plot(
+  data$n,
+  data$time,
+  type = "b",
+  pch = 19,
+  xlab = "n",
+  ylab = "time (seconds)",
+  main = "Gale–Shapley Matcher Runtime"
+)
+```
