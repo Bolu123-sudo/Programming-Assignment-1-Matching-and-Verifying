@@ -5,7 +5,27 @@ reading = sys.stdin.read()
 if reading.strip() == "":
     exit()
 inp = reading.splitlines()
+notEmpty = []
+for i in inp:
+    if i.strip() != "":
+        notEmpty.append(i.strip())
+inp = notEmpty
 count = int(inp[0])
+
+#parse func
+def parse(x):
+    nums = x.split()
+    row = []
+    j = 0
+    while j < len(nums):
+        temp = int(nums[j]) - 1
+        if temp < 0:
+            exit()
+        if temp >= count:
+            exit()
+        row.append(temp)
+        j = j + 1
+    return row
 
 #some edge cases
 if count == 0:
@@ -18,16 +38,6 @@ if len(inp) < (1+count+count):
 #create arrays for hospitals and students
 hospital = []
 student = []
-
-
-def parse(x):
-    nums = x.split()
-    row = []
-    j = 0
-    while j < len(nums):
-        row.append(int(nums[j]) - 1)
-        j = j + 1
-    return row
 
 i =1
 while i < (1 + count):
