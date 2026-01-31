@@ -6,7 +6,8 @@ output: pdf_document
 ---
 
 ```{r}
-data <- read.csv("matcher_times.csv")
+data <- read.csv("PartExtras/matcher_times.csv")
+data2 <- read.csv("PartExtras/part2.csv")
 
 plot(
   data$n,
@@ -15,6 +16,20 @@ plot(
   pch = 19,
   xlab = "n",
   ylab = "time (seconds)",
-  main = "Gale–Shapley Matcher Runtime"
+  main = "Runtime: Matcher vs Verifier"
+)
+
+lines(
+  data2$n,
+  data2$time,
+  type = "b",
+  pch = 17
+)
+
+legend(
+  "topleft",
+  legend = c("Matcher", "Verifier"),
+  pch = c(19, 17),
+  bty = "n"
 )
 ```
